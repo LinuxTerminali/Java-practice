@@ -5,7 +5,7 @@ import java.math.*;
 import java.util.regex.*;
 import java.util.Arrays;
 
-public class Logan {
+public class Solution {
 
     public static void main(String[] args) {
         /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
@@ -40,22 +40,36 @@ public class Logan {
                 map.put(key, 1);
             }
         }
-
+        ArrayList<Integer>counting=new ArrayList<Integer>();
         Iterator iterator = map.keySet().iterator();
         while (iterator.hasNext()) {
             int key = (Integer) iterator.next();
             int occurrence = map.get(key);
-            int temp=-1000000;
-            
-            if(temp!=key){
-             count=count*occurrence;
-            }
-            temp=key;
+             counting.add(occurrence);
+           // }
+            //temp=key;
+            //System.out.println("value of temp is "+ temp);
             //System.out.println(key + " occur " + occurrence + " time(s).");
         }
+        int sizeCounting=counting.size();
+        int z=0;
         
-        
-       //System.out.println(count); 
+       while(sizeCounting!=0){
+           int countFact=1;
+           int value=counting.get(z);
+           //System.out.println("for element "+value);
+       for(int j=1; j<=value;j++){
+           
+             countFact=countFact*j;
+           //System.out.println("countFact "+countFact);
+           
+            }
+           
+           count=count*countFact;
+           z++;
+           sizeCounting--;
+       }
+      //System.out.println(count); 
         
         
         
@@ -69,10 +83,11 @@ public class Logan {
         double factorial=1.000000;
 for(int i=1; i<=N;i++){
         factorial=factorial*i;
-    //System.out.println(factorial);
+   // System.out.println("i  "+i);
+  //System.out.println(factorial);
 }
-        
-        System.out.println(factorial/count);
+        double result=factorial/count;
+        System.out.println(result);
         
         
         }
